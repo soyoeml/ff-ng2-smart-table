@@ -8,8 +8,7 @@ import { Cell } from '../../lib/data-set/cell';
   template: `
     <div #cellContainer *ngIf="!cell.getRow().isInEditing && cell.getColumn().type !== 'html' && cell.getColumn().type !== 'checkbox'">{{ cell.getValue() }}</div>
     <div *ngIf=\"!cell.getRow().isInEditing && cell.getColumn().type === 'checkbox'\">
-    <input *ngIf=\"cell.getValue()\" id="cell.getColumn().id" type='checkbox' checked>
-    <input *ngIf=\"!cell.getValue()\" id="cell.getColumn().id" type='checkbox'>
+    <input *ngIf=\"cell.getColumn().type === 'checkbox'\" [id]=\"cell.getRow().cells[1].getValue()\" type='checkbox' [checked]=\"cell.value\">
     </div>
     <div #cellContainer *ngIf="!cell.getRow().isInEditing && cell.getColumn().type === 'html'" [innerHTML]="cell.getValue()"></div>
     <input *ngIf="cell.getRow().isInEditing" 
