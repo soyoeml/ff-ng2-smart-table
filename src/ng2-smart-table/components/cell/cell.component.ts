@@ -7,7 +7,7 @@ import { Cell } from '../../lib/data-set/cell';
   styles: [require('./cell.scss')],
   template: `
     <div #cellContainer *ngIf="!cell.getRow().isInEditing && cell.getColumn().type !== 'html' && cell.getColumn().type !== 'checkbox'">{{ cell.getValue() }}</div>
-    <div *ngIf=\"!cell.getRow().isInEditing && cell.getColumn().type === 'checkbox'\"><input type='checkbox'>{{cell.getValue() === true ? 'checked' : ''}}</div>
+    <div *ngIf=\"!cell.getRow().isInEditing && cell.getColumn().type === 'checkbox'\"><input type='checkbox' {{cell.getValue() === true ? 'checked' : ''}}></div>
     <div #cellContainer *ngIf="!cell.getRow().isInEditing && cell.getColumn().type === 'html'" [innerHTML]="cell.getValue()"></div>
     <input *ngIf="cell.getRow().isInEditing" 
       [ngClass]="inputClass"
