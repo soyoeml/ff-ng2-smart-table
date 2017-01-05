@@ -8,7 +8,8 @@ import { Column } from '../../lib/data-set/column';
   styles: [require('./filter.scss')],
   template: `
     <div class="ng2-smart-filter" *ngIf="column.isFilterable">
-      <input 
+      <input
+      *ngIf="column.type !== 'checkbox'" 
       [(ngModel)]="query"
       (keyup)="filter($event)"
       [ngClass]="inputClass"
