@@ -64,7 +64,7 @@ var FilterComponent = (function () {
         core_1.Component({
             selector: 'ng2-smart-table-filter',
             styles: [require('./filter.scss')],
-            template: "\n    <div class=\"ng2-smart-filter\" *ngIf=\"column.isFilterable\">\n      <input \n      [(ngModel)]=\"query\"\n      (keyup)=\"filter($event)\"\n      [ngClass]=\"inputClass\"\n      class=\"form-control\"\n      type=\"text\" \n      placeholder=\"{{ column.title }}\" />\n    </div>\n  "
+            template: "\n    <div class=\"ng2-smart-filter\" *ngIf=\"column.isFilterable\">\n      <input\n      *ngIf=\"column.type !== 'checkbox'\" \n      [(ngModel)]=\"query\"\n      (keyup)=\"filter($event)\"\n      [ngClass]=\"inputClass\"\n      class=\"form-control\"\n      type=\"text\" \n      placeholder=\"{{ column.title }}\" />\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], FilterComponent);
